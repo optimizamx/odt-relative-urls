@@ -4,7 +4,7 @@
  *
  * Description: Converts all absolute URLs into relative URLS.
  *
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Optimiza <info@optimiza.mx>
  * Author URI: http://optimiza.mx
  * License: MIT License
