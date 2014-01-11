@@ -7,7 +7,7 @@ This WordPress plugin converts all the absolute URLs in the front-end to relativ
 
 How does it work?
 =================
-When you visit a page, it will request the full HTML requesting the same page via file_get_contents(), and replace every occurrence of your domain with a slash ("http://mydomain.com" will be converted to "/").
+When you visit a page, it will request the full HTML requesting the same page via file_get_contents(), and replace every occurrence of your domain with a slash ("http://optimiza.mx/" will be converted to "/").
 
 It's not the best performance solution, but gets the better results; other plugins was replacing links that they shouldn't and not replacing links that they should. DON'T USE IT ON PRODUCTION WEBSITES, ONLY ON DEVELOPMENT WEBSITES.
 
