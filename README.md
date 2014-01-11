@@ -9,7 +9,7 @@ How does it work?
 =================
 When you visit a page, it will request the full HTML requesting the same page via file_get_contents(), and replace every occurrence of your domain with a slash, for example: ("http://optimiza.mx/" will be converted to "/").
 
-It's not the best performance solution, but gets the better results; other plugins was replacing links that they shouldn't and not replacing links that they should. DON'T USE IT ON PRODUCTION WEBSITES, ONLY ON DEVELOPMENT WEBSITES.
+It's not the best performance solution, but gets the better results; other plugins were replacing links that they shouldn't and not replacing links that they should. DON'T USE IT ON PRODUCTION WEBSITES, ONLY ON DEVELOPMENT WEBSITES.
 
 The replacement occurs only on the front-end. The wp-admin is source code won't be modified.
 
