@@ -36,7 +36,7 @@ add_action('template_redirect', 'odt_autoload');
 function odt_autoload(){
 	if(!isset($_GET['odt_autoload'])){
 		$site_url = site_url().'/';
-		echo str_replace($site_url, wp_make_link_relative($site_url), file_get_contents(add_query_arg('odt_autoload', 1, 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'])));
+		echo str_replace($site_url, 'http://' . $_SERVER['HTTP_HOST'] . wp_make_link_relative($site_url), file_get_contents(add_query_arg('odt_autoload', 1, 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'])));
 		exit;
 	}
 }
