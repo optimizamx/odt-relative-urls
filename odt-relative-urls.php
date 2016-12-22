@@ -33,10 +33,25 @@ SOFTWARE.
 
 add_action('template_redirect', 'odt_autoload');
 
-function odt_autoload(){
-	if(!isset($_GET['odt_autoload'])){
-		$site_url = site_url().'/';
-		echo str_replace($site_url, 'http://' . $_SERVER['HTTP_HOST'] . wp_make_link_relative($site_url), file_get_contents(add_query_arg('odt_autoload', 1, 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'])));
-		exit;
-	}
+function odt_autoload()
+{
+    if (!isset($_GET['odt_autoload'])) {
+        $site_url = site_url().'/';
+        $context = stream_context_create(array(
+            'http' => array(
+                'method' => 'GET',
+                'header' => 'User-Agent: ' . $_SERVER['HTTP_USER_AGENT'],
+            ),
+        ));
+        echo str_replace(
+            $site_url,
+            'http://' . $_SERVER['HTTP_HOST'] . wp_make_link_relative($site_url),
+            file_get_contents(
+                add_query_arg('odt_autoload', 1, 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']),
+                false,
+                $context
+            )
+        );
+        exit;
+    }
 }
